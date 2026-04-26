@@ -6,9 +6,11 @@ def roman_to_int(roman_string):
                   'C': 100, 'D': 500, 'M': 1000}
     total = 0
     for i in range(len(roman_string)):
-        if (i < len(roman_string) - 1 and
-            roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
-            total -= roman_dict[roman_string[i]]
-        else:
-            total += roman_dict[roman_string[i]]
+        curr_val = roman_dict[roman_string[i]]
+        if i < len(roman_string) - 1:
+            next_val = roman_dict[roman_string[i + 1]]
+            if curr_val < next_val:
+                total -= curr_val
+                continue
+        total += curr_val
     return total
