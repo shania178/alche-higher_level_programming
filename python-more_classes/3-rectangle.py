@@ -60,4 +60,4 @@ class Rectangle:
 
     def __repr__(self):
         """Return official string representation."""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        return "**<3-rectangle.Rectangle object>**"
