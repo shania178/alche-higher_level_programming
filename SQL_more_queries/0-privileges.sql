@@ -1,8 +1,3 @@
--- create users and assign privileges
-
-CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost';
-CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost';
-
 -- user_0d_1 = root user
 GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost' WITH GRANT OPTION;
 
