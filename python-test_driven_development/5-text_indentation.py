@@ -3,7 +3,10 @@
 
 
 def text_indentation(text):
-    """Print text with formatting rules for punctuation."""
+    """Print text with 2 new lines after '.', '?' and ':'
+
+    No space at beginning or end of printed lines.
+    """
 
     if not isinstance(text, str):
         raise TypeError("text must be a string")
@@ -12,16 +15,21 @@ def text_indentation(text):
     n = len(text)
 
     while i < n:
-        print(text[i], end="")
-
-        if text[i] in ".?:":
-            print()  # ONLY ONE newline, not forced blank line
-
-            # skip spaces after punctuation
+        # skip spaces at start of a line
+        while i < n and text[i] == " ":
             i += 1
-            while i < n and text[i] == " ":
+
+        while i < n:
+            print(text[i], end="")
+
+            if text[i] in ".?:":
+                print("\n")
                 i += 1
 
-            continue
+                # skip spaces after punctuation
+                while i < n and text[i] == "":
+                    i += 1
 
-        i += 1
+                break
+
+            i += 1
