@@ -1,0 +1,63 @@
+The ``5-text_indentation`` module
+
+===========================
+Import function
+===========================
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+===========================
+Type error tests
+===========================
+
+    >>> text_indentation(12)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+===========================
+Basic punctuation tests
+===========================
+
+    >>> text_indentation("Hello.")
+    Hello.
+
+    >>> text_indentation("Hello?")
+    Hello?
+
+    >>> text_indentation("Hello:")
+    Hello:
+
+===========================
+Spaces after punctuation
+===========================
+
+    >>> text_indentation("Hello. World")
+    Hello.
+
+    World
+
+===========================
+Multiple punctuation
+===========================
+
+    >>> text_indentation("Hi.  How are you?  Fine:Thanks")
+    Hi.
+
+    How are you?
+
+    Fine:
+
+    Thanks
+
+===========================
+No leading/trailing spaces
+===========================
+
+    >>> text_indentation("  Hello.  World  ")
+    Hello.
+
+    World
