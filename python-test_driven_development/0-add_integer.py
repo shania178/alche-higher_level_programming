@@ -2,14 +2,10 @@
 """Module that adds two integers."""
 
 
-import math
-
-
 def add_integer(a, b=98):
-    """Return the addition of a and b as integers.
+    """Return the addition of two integers.
 
     a and b must be integers or floats.
-    Floats must not be NaN or infinity.
     """
 
     if not isinstance(a, (int, float)):
@@ -18,10 +14,11 @@ def add_integer(a, b=98):
     if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
 
-    if isinstance(a, float) and (math.isnan(a) or math.isinf(a)):
+    # Reject NaN or infinity WITHOUT importing math
+    if a != a or a in (float('inf'), float('-inf')):
         raise TypeError("a must be an integer")
 
-    if isinstance(b, float) and (math.isnan(b) or math.isinf(b)):
+    if b != b or b in (float('inf'), float('-inf')):
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
