@@ -3,22 +3,16 @@
 
 
 def add_integer(a, b=98):
-    """Return the addition of two integers.
+    """Return the sum of two integers.
 
-    a and b must be integers or floats.
+    Floats are cast to integers.
+    Raises TypeError if inputs are not int or float.
     """
 
-    if not isinstance(a, (int, float)):
+    if type(a) not in (int, float):
         raise TypeError("a must be an integer")
 
-    if not isinstance(b, (int, float)):
-        raise TypeError("b must be an integer")
-
-    # Reject NaN or infinity WITHOUT importing math
-    if a != a or a in (float('inf'), float('-inf')):
-        raise TypeError("a must be an integer")
-
-    if b != b or b in (float('inf'), float('-inf')):
+    if type(b) not in (int, float):
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
