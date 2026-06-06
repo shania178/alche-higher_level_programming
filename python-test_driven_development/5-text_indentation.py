@@ -1,24 +1,27 @@
 #!/usr/bin/python3
-"""Module that prints text with 2 new lines after ., ? and :"""
+"""Module that prints text with 2 new lines after '.', '?' and ':'"""
 
 
 def text_indentation(text):
-    """Print a text with 2 new lines after '.', '?' and ':'.
-
-    No space is printed at the beginning or end of each line.
-    """
+    """Print text with formatting rules for punctuation."""
 
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
     i = 0
-    while i < len(text):
+    n = len(text)
+
+    while i < n:
         print(text[i], end="")
 
         if text[i] in ".?:":
-            print("\n")
+            print()  # ONLY ONE newline, not forced blank line
+
             # skip spaces after punctuation
-            while i + 1 < len(text) and text[i + 1] == " ":
+            i += 1
+            while i < n and text[i] == " ":
                 i += 1
+
+            continue
 
         i += 1
