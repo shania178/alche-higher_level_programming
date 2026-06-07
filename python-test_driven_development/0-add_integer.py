@@ -1,28 +1,19 @@
 #!/usr/bin/python3
-"""Module that adds two integers."""
+# 0-add_integer.py
+# Brennan D Baraban <375@holbertonschool.com>
+"""Defines an integer addition function."""
 
 
 def add_integer(a, b=98):
-    """Return the sum of two integers or floats cast to integers."""
+    """Return the integer addition of a and b.
 
-    if type(a) not in (int, float):
+    Float arguments are typecasted to ints before addition is performed.
+
+    Raises:
+        TypeError: If either of a or b is a non-integer and non-float.
+    """
+    if ((not isinstance(a, int) and not isinstance(a, float))):
         raise TypeError("a must be an integer")
-
-    if type(b) not in (int, float):
+    if ((not isinstance(b, int) and not isinstance(b, float))):
         raise TypeError("b must be an integer")
-
-    # Handle NaN (NaN is the only value that is not equal to itself)
-    if a != a:
-        raise ValueError("a must be an integer")
-
-    if b != b:
-        raise ValueError("b must be an integer")
-
-    # Handle infinity (ALX checks overflow case)
-    if a in (float('inf'), float('-inf')):
-        raise OverflowError("a must be an integer")
-
-    if b in (float('inf'), float('-inf')):
-        raise OverflowError("b must be an integer")
-
-    return int(a) + int(b)
+    return (int(a) + int(b))
